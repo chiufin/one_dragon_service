@@ -1,6 +1,8 @@
 var express = require('express');
+var cors = require('cors')
 var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
+require('dotenv').config();
 
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
@@ -16,7 +18,12 @@ var root = {
   },
 };
 
+
+console.log(process.env.CORS_FRONTEND);
 var app = express();
+app.use(cors({
+  origin: 'http://localhost:3000',
+}))
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,

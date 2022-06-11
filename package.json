@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/chiufin/one_dragon_service#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-graphql": "^0.12.0",
     "graphql": "^15.8.0"
