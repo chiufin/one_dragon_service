@@ -4,6 +4,7 @@ var { graphqlHTTP } = require('express-graphql');
 var { buildSchema } = require('graphql');
 require('dotenv').config();
 
+const PORT = process.env.PORT || 4000;
 // Construct a schema, using GraphQL schema language
 var schema = buildSchema(`
   type Query {
@@ -30,6 +31,5 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
 }));
 
-app.listen(4000);
-
-console.log('Running a GraphQL API server at http://localhost:4000/graphql');
+app.listen(PORT);
+console.log('Running a GraphQL API server');
