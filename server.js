@@ -19,11 +19,12 @@ var root = {
   },
 };
 
+var corsOptions = { origin: process.env.CORS_FRONTEND };
 
 var app = express();
-app.use(cors({
-  origin: process.env.CORS_FRONTEND,
-}))
+app.options('*', cors(corsOptions))
+app.use(cors(corsOptions))
+
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,
