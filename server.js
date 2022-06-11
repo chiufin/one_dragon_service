@@ -19,10 +19,9 @@ var root = {
 };
 
 
-console.log(process.env.CORS_FRONTEND);
 var app = express();
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: process.env.CORS_FRONTEND,
 }))
 
 app.use('/graphql', graphqlHTTP({
